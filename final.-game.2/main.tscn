@@ -1,0 +1,913 @@
+[gd_scene load_steps=19 format=3 uid="uid://dwcrijwj6y8wd"]
+
+[ext_resource type="Script" uid="uid://satomj1506xg" path="res://player.gd" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://cme3gryno8nhj" path="res://main.gd" id="1_5vw27"]
+[ext_resource type="Script" uid="uid://cbix83603ckp6" path="res://camera_2d.gd" id="2_efxa6"]
+[ext_resource type="Texture2D" uid="uid://q0j5xgjtul4g" path="res://FreeAnimalPack/JumpCattt.png" id="2_h2yge"]
+[ext_resource type="Texture2D" uid="uid://cisj1c5b3n5qi" path="res://Free Pixel Art Forest/PNG/Background layers/Layer_0002_7.png" id="3_h2yge"]
+[ext_resource type="Texture2D" uid="uid://cx8cp4hs2gqsj" path="res://stringstar fields/example.png" id="4_1bvp3"]
+[ext_resource type="Script" uid="uid://doso33koctm4o" path="res://ground_3.gd" id="5_4c57u"]
+[ext_resource type="Script" uid="uid://b1k020wgjfuxm" path="res://killzone.gd" id="5_lquwl"]
+[ext_resource type="Texture2D" uid="uid://dfue48x654qb2" path="res://PlatformerPack_1/coin1.png" id="6_7mycd"]
+[ext_resource type="Script" uid="uid://cmtwkxg87g0mk" path="res://coin.gd" id="6_272bh"]
+[ext_resource type="AudioStream" uid="uid://dlqq12mnfds72" path="res://Alle Farben & Fools Garden - Lemon Tree.mp3" id="9_kek77"]
+[ext_resource type="Texture2D" uid="uid://bnqo5m81dbfdl" path="res://—Pngtree—game ui heart icon_8503783.png" id="12_dg77c"]
+[ext_resource type="Texture2D" uid="uid://bjtidilp1eur" path="res://360_F_1504733558_5Fxq75beNmpTJsGPBMgudwoeSe3Cse4L.jpg" id="13_ycdy4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7mycd"]
+size = Vector2(10632.75, 2058)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
+size = Vector2(119, 112)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
+size = Vector2(930, 285)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4c57u"]
+size = Vector2(929, 287)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7mycd"]
+radius = 11.045361
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_5vw27")
+
+[node name="Killzone" type="Area2D" parent="."]
+visible = false
+script = ExtResource("5_lquwl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(668.625, 1925)
+shape = SubResource("RectangleShape2D_7mycd")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(501, 318)
+zoom = Vector2(0.65, 0.65)
+script = ExtResource("2_efxa6")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(499, 300)
+script = ExtResource("1_0xm2m")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("2_h2yge")
+region_enabled = true
+region_rect = Rect2(0, 0, 33, 32.820206)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(-2.5, 25)
+shape = SubResource("RectangleShape2D_1bvp3")
+
+[node name="ScoreLabel" type="Label" parent="Player"]
+offset_left = -27.0
+offset_top = -52.0
+offset_right = 34.0
+offset_bottom = -29.0
+text = "Coins: 0"
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(506, 643)
+scale = Vector2(0.8, 0.8)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground"]
+texture = ExtResource("3_h2yge")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(0, -65.5)
+shape = SubResource("RectangleShape2D_lquwl")
+
+[node name="Ground15" type="StaticBody2D" parent="."]
+position = Vector2(1485, -1079)
+scale = Vector2(0.8, 0.8)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground15"]
+texture = ExtResource("3_h2yge")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground15"]
+position = Vector2(0, -65.5)
+shape = SubResource("RectangleShape2D_lquwl")
+
+[node name="Ground2" type="StaticBody2D" parent="."]
+position = Vector2(1512, 312)
+scale = Vector2(0.8, 0.8)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground2"]
+texture = ExtResource("3_h2yge")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2"]
+position = Vector2(0, -65.5)
+shape = SubResource("RectangleShape2D_lquwl")
+
+[node name="Ground23" type="StaticBody2D" parent="."]
+position = Vector2(-486, 273)
+scale = Vector2(0.8, 0.8)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground23"]
+texture = ExtResource("3_h2yge")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground23"]
+position = Vector2(0, -65.5)
+shape = SubResource("RectangleShape2D_lquwl")
+
+[node name="Ground3" type="AnimatableBody2D" parent="."]
+position = Vector2(498, -201)
+scale = Vector2(0.8, 0.8)
+script = ExtResource("5_4c57u")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground3"]
+texture = ExtResource("3_h2yge")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground3"]
+position = Vector2(0, -65.5)
+shape = SubResource("RectangleShape2D_lquwl")
+
+[node name="Detector" type="Area2D" parent="Ground3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground3/Detector"]
+position = Vector2(0.5, -64.5)
+shape = SubResource("RectangleShape2D_4c57u")
+
+[node name="Ground8" type="StaticBody2D" parent="."]
+position = Vector2(2577, -699)
+scale = Vector2(0.8, 0.8)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground8"]
+texture = ExtResource("3_h2yge")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground8"]
+position = Vector2(0, -65.5)
+shape = SubResource("RectangleShape2D_lquwl")
+
+[node name="Ground21" type="AnimatableBody2D" parent="."]
+position = Vector2(-1598, -3654)
+scale = Vector2(0.8, 0.8)
+script = ExtResource("5_4c57u")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground21"]
+texture = ExtResource("3_h2yge")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground21"]
+position = Vector2(0, -65.5)
+shape = SubResource("RectangleShape2D_lquwl")
+
+[node name="Ground17" type="AnimatableBody2D" parent="."]
+position = Vector2(430, -3643)
+scale = Vector2(0.8, 0.8)
+script = ExtResource("5_4c57u")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground17"]
+texture = ExtResource("3_h2yge")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground17"]
+position = Vector2(0, -65.5)
+shape = SubResource("RectangleShape2D_lquwl")
+
+[node name="Ground18" type="AnimatableBody2D" parent="."]
+position = Vector2(400, -1522)
+scale = Vector2(0.8, 0.8)
+script = ExtResource("5_4c57u")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground18"]
+texture = ExtResource("3_h2yge")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground18"]
+position = Vector2(0, -65.5)
+shape = SubResource("RectangleShape2D_lquwl")
+
+[node name="Ground19" type="AnimatableBody2D" parent="."]
+position = Vector2(1469, -1879)
+scale = Vector2(0.8, 0.8)
+script = ExtResource("5_4c57u")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground19"]
+texture = ExtResource("3_h2yge")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground19"]
+position = Vector2(0, -65.5)
+shape = SubResource("RectangleShape2D_lquwl")
+
+[node name="Ground20" type="AnimatableBody2D" parent="."]
+position = Vector2(-1858, -1981)
+scale = Vector2(0.8, 0.8)
+script = ExtResource("5_4c57u")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground20"]
+texture = ExtResource("3_h2yge")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground20"]
+position = Vector2(0, -65.5)
+shape = SubResource("RectangleShape2D_lquwl")
+
+[node name="Ground16" type="AnimatableBody2D" parent="."]
+position = Vector2(1402, -3190)
+scale = Vector2(0.8, 0.8)
+script = ExtResource("5_4c57u")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground16"]
+texture = ExtResource("3_h2yge")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground16"]
+position = Vector2(0, -65.5)
+shape = SubResource("RectangleShape2D_lquwl")
+
+[node name="Ground4" type="StaticBody2D" parent="."]
+position = Vector2(1581, -490)
+scale = Vector2(0.8, 0.8)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground4"]
+texture = ExtResource("3_h2yge")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground4"]
+position = Vector2(0, -65.5)
+shape = SubResource("RectangleShape2D_lquwl")
+
+[node name="Ground5" type="StaticBody2D" parent="."]
+position = Vector2(-606, -579)
+scale = Vector2(0.8, 0.8)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground5"]
+texture = ExtResource("3_h2yge")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground5"]
+position = Vector2(0, -65.5)
+shape = SubResource("RectangleShape2D_lquwl")
+
+[node name="Ground6" type="StaticBody2D" parent="."]
+position = Vector2(462, -928)
+scale = Vector2(0.8, 0.8)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground6"]
+texture = ExtResource("3_h2yge")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground6"]
+position = Vector2(0, -65.5)
+shape = SubResource("RectangleShape2D_lquwl")
+
+[node name="Ground7" type="StaticBody2D" parent="."]
+position = Vector2(-593, -1241)
+scale = Vector2(0.8, 0.8)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground7"]
+texture = ExtResource("3_h2yge")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground7"]
+position = Vector2(0, -65.5)
+shape = SubResource("RectangleShape2D_lquwl")
+
+[node name="Ground9" type="StaticBody2D" parent="."]
+position = Vector2(-1666, -1573)
+scale = Vector2(0.8, 0.8)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground9"]
+texture = ExtResource("3_h2yge")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground9"]
+position = Vector2(0, -65.5)
+shape = SubResource("RectangleShape2D_lquwl")
+
+[node name="Ground10" type="StaticBody2D" parent="."]
+position = Vector2(-650, -1997)
+scale = Vector2(0.8, 0.8)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground10"]
+texture = ExtResource("3_h2yge")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground10"]
+position = Vector2(0, -65.5)
+shape = SubResource("RectangleShape2D_lquwl")
+
+[node name="Ground11" type="StaticBody2D" parent="."]
+position = Vector2(-679, -2674)
+scale = Vector2(0.8, 0.8)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground11"]
+texture = ExtResource("3_h2yge")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground11"]
+position = Vector2(0, -65.5)
+shape = SubResource("RectangleShape2D_lquwl")
+
+[node name="Ground12" type="StaticBody2D" parent="."]
+position = Vector2(396, -3062)
+scale = Vector2(0.8, 0.8)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground12"]
+texture = ExtResource("3_h2yge")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground12"]
+position = Vector2(0, -65.5)
+shape = SubResource("RectangleShape2D_lquwl")
+
+[node name="Ground13" type="StaticBody2D" parent="."]
+position = Vector2(-656, -3438)
+scale = Vector2(0.8, 0.8)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground13"]
+texture = ExtResource("3_h2yge")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground13"]
+position = Vector2(0, -65.5)
+shape = SubResource("RectangleShape2D_lquwl")
+
+[node name="Ground14" type="StaticBody2D" parent="."]
+position = Vector2(-1792, -3002)
+scale = Vector2(0.8, 0.8)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground14"]
+texture = ExtResource("3_h2yge")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground14"]
+position = Vector2(0, -65.5)
+shape = SubResource("RectangleShape2D_lquwl")
+
+[node name="Ground22" type="StaticBody2D" parent="."]
+position = Vector2(391, -2427)
+scale = Vector2(0.8, 0.8)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground22"]
+texture = ExtResource("3_h2yge")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground22"]
+position = Vector2(0, -65.5)
+shape = SubResource("RectangleShape2D_lquwl")
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -10
+position = Vector2(681, -1492)
+scale = Vector2(5.123372, 4.9593167)
+texture = ExtResource("4_1bvp3")
+
+[node name="Background2" type="Sprite2D" parent="."]
+z_index = -10
+position = Vector2(678, -6864)
+scale = Vector2(5.123372, 4.9593167)
+texture = ExtResource("4_1bvp3")
+
+[node name="Background3" type="Sprite2D" parent="."]
+z_index = -10
+position = Vector2(690, -12259)
+scale = Vector2(5.123372, 4.9593167)
+texture = ExtResource("4_1bvp3")
+
+[node name="Background4" type="Sprite2D" parent="."]
+z_index = -10
+position = Vector2(695, 3851)
+scale = Vector2(5.123372, 4.9593167)
+texture = ExtResource("4_1bvp3")
+
+[node name="Coin" type="Area2D" parent="."]
+position = Vector2(-1628, -1810)
+script = ExtResource("6_272bh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin"]
+position = Vector2(698, 280)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_7mycd")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin"]
+position = Vector2(698, 280)
+shape = SubResource("CircleShape2D_7mycd")
+
+[node name="Coin5" type="Area2D" parent="."]
+position = Vector2(1539, 41)
+script = ExtResource("6_272bh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin5"]
+position = Vector2(698, 280)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_7mycd")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin5"]
+position = Vector2(698, 280)
+shape = SubResource("CircleShape2D_7mycd")
+
+[node name="Coin6" type="Area2D" parent="."]
+position = Vector2(2582, -958)
+script = ExtResource("6_272bh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin6"]
+position = Vector2(698, 280)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_7mycd")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin6"]
+position = Vector2(698, 280)
+shape = SubResource("CircleShape2D_7mycd")
+
+[node name="Coin7" type="Area2D" parent="."]
+position = Vector2(64, 159)
+script = ExtResource("6_272bh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin7"]
+position = Vector2(698, 280)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_7mycd")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin7"]
+position = Vector2(698, 280)
+shape = SubResource("CircleShape2D_7mycd")
+
+[node name="Coin30" type="Area2D" parent="."]
+position = Vector2(-175, -252)
+script = ExtResource("6_272bh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin30"]
+position = Vector2(698, 280)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_7mycd")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin30"]
+position = Vector2(698, 280)
+shape = SubResource("CircleShape2D_7mycd")
+
+[node name="Coin31" type="Area2D" parent="."]
+position = Vector2(481, -641)
+script = ExtResource("6_272bh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin31"]
+position = Vector2(698, 280)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_7mycd")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin31"]
+position = Vector2(698, 280)
+shape = SubResource("CircleShape2D_7mycd")
+
+[node name="Coin32" type="Area2D" parent="."]
+position = Vector2(462, -1206)
+script = ExtResource("6_272bh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin32"]
+position = Vector2(698, 280)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_7mycd")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin32"]
+position = Vector2(698, 280)
+shape = SubResource("CircleShape2D_7mycd")
+
+[node name="Coin8" type="Area2D" parent="."]
+position = Vector2(-645, -3948)
+script = ExtResource("6_272bh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin8"]
+position = Vector2(698, 280)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_7mycd")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin8"]
+position = Vector2(698, 280)
+shape = SubResource("CircleShape2D_7mycd")
+
+[node name="Coin9" type="Area2D" parent="."]
+position = Vector2(763, -1974)
+script = ExtResource("6_272bh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin9"]
+position = Vector2(698, 280)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_7mycd")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin9"]
+position = Vector2(698, 280)
+shape = SubResource("CircleShape2D_7mycd")
+
+[node name="Coin10" type="Area2D" parent="."]
+position = Vector2(-570, -1530)
+script = ExtResource("6_272bh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin10"]
+position = Vector2(698, 280)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_7mycd")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin10"]
+position = Vector2(698, 280)
+shape = SubResource("CircleShape2D_7mycd")
+
+[node name="Coin11" type="Area2D" parent="."]
+position = Vector2(-1308, -3340)
+script = ExtResource("6_272bh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin11"]
+position = Vector2(698, 280)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_7mycd")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin11"]
+position = Vector2(698, 280)
+shape = SubResource("CircleShape2D_7mycd")
+
+[node name="Coin12" type="Area2D" parent="."]
+position = Vector2(1233, -2771)
+script = ExtResource("6_272bh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin12"]
+position = Vector2(698, 280)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_7mycd")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin12"]
+position = Vector2(698, 280)
+shape = SubResource("CircleShape2D_7mycd")
+
+[node name="Coin13" type="Area2D" parent="."]
+position = Vector2(918, -629)
+script = ExtResource("6_272bh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin13"]
+position = Vector2(698, 280)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_7mycd")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin13"]
+position = Vector2(698, 280)
+shape = SubResource("CircleShape2D_7mycd")
+
+[node name="Coin14" type="Area2D" parent="."]
+position = Vector2(-217, -3864)
+script = ExtResource("6_272bh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin14"]
+position = Vector2(698, 280)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_7mycd")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin14"]
+position = Vector2(698, 280)
+shape = SubResource("CircleShape2D_7mycd")
+
+[node name="Coin15" type="Area2D" parent="."]
+position = Vector2(1512, -2497)
+script = ExtResource("6_272bh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin15"]
+position = Vector2(698, 280)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_7mycd")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin15"]
+position = Vector2(698, 280)
+shape = SubResource("CircleShape2D_7mycd")
+
+[node name="Coin16" type="Area2D" parent="."]
+position = Vector2(1433, -3439)
+script = ExtResource("6_272bh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin16"]
+position = Vector2(698, 280)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_7mycd")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin16"]
+position = Vector2(698, 280)
+shape = SubResource("CircleShape2D_7mycd")
+
+[node name="Coin17" type="Area2D" parent="."]
+position = Vector2(-1535, -3916)
+script = ExtResource("6_272bh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin17"]
+position = Vector2(698, 280)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_7mycd")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin17"]
+position = Vector2(698, 280)
+shape = SubResource("CircleShape2D_7mycd")
+
+[node name="Coin18" type="Area2D" parent="."]
+position = Vector2(448, -3903)
+script = ExtResource("6_272bh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin18"]
+position = Vector2(698, 280)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_7mycd")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin18"]
+position = Vector2(698, 280)
+shape = SubResource("CircleShape2D_7mycd")
+
+[node name="Coin19" type="Area2D" parent="."]
+position = Vector2(-644, -3711)
+script = ExtResource("6_272bh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin19"]
+position = Vector2(698, 280)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_7mycd")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin19"]
+position = Vector2(698, 280)
+shape = SubResource("CircleShape2D_7mycd")
+
+[node name="Coin20" type="Area2D" parent="."]
+position = Vector2(-1776, -3271)
+script = ExtResource("6_272bh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin20"]
+position = Vector2(698, 280)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_7mycd")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin20"]
+position = Vector2(698, 280)
+shape = SubResource("CircleShape2D_7mycd")
+
+[node name="Coin21" type="Area2D" parent="."]
+position = Vector2(-677, -2932)
+script = ExtResource("6_272bh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin21"]
+position = Vector2(698, 280)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_7mycd")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin21"]
+position = Vector2(698, 280)
+shape = SubResource("CircleShape2D_7mycd")
+
+[node name="Coin22" type="Area2D" parent="."]
+position = Vector2(-1831, -2545)
+script = ExtResource("6_272bh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin22"]
+position = Vector2(698, 280)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_7mycd")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin22"]
+position = Vector2(698, 280)
+shape = SubResource("CircleShape2D_7mycd")
+
+[node name="Coin23" type="Area2D" parent="."]
+position = Vector2(1484, -1352)
+script = ExtResource("6_272bh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin23"]
+position = Vector2(698, 280)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_7mycd")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin23"]
+position = Vector2(698, 280)
+shape = SubResource("CircleShape2D_7mycd")
+
+[node name="Coin24" type="Area2D" parent="."]
+position = Vector2(400, -2713)
+script = ExtResource("6_272bh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin24"]
+position = Vector2(698, 280)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_7mycd")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin24"]
+position = Vector2(698, 280)
+shape = SubResource("CircleShape2D_7mycd")
+
+[node name="Coin25" type="Area2D" parent="."]
+position = Vector2(406, -3328)
+script = ExtResource("6_272bh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin25"]
+position = Vector2(698, 280)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_7mycd")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin25"]
+position = Vector2(698, 280)
+shape = SubResource("CircleShape2D_7mycd")
+
+[node name="Coin26" type="Area2D" parent="."]
+position = Vector2(-1847, -2236)
+script = ExtResource("6_272bh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin26"]
+position = Vector2(698, 280)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_7mycd")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin26"]
+position = Vector2(698, 280)
+shape = SubResource("CircleShape2D_7mycd")
+
+[node name="Coin27" type="Area2D" parent="."]
+position = Vector2(-643, -2250)
+script = ExtResource("6_272bh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin27"]
+position = Vector2(698, 280)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_7mycd")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin27"]
+position = Vector2(698, 280)
+shape = SubResource("CircleShape2D_7mycd")
+
+[node name="Coin28" type="Area2D" parent="."]
+position = Vector2(1521, -2132)
+script = ExtResource("6_272bh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin28"]
+position = Vector2(698, 280)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_7mycd")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin28"]
+position = Vector2(698, 280)
+shape = SubResource("CircleShape2D_7mycd")
+
+[node name="Coin29" type="Area2D" parent="."]
+position = Vector2(406, -1789)
+script = ExtResource("6_272bh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin29"]
+position = Vector2(698, 280)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_7mycd")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin29"]
+position = Vector2(698, 280)
+shape = SubResource("CircleShape2D_7mycd")
+
+[node name="Coin4" type="Area2D" parent="."]
+position = Vector2(-612, -832)
+script = ExtResource("6_272bh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin4"]
+position = Vector2(698, 280)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_7mycd")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin4"]
+position = Vector2(698, 280)
+shape = SubResource("CircleShape2D_7mycd")
+
+[node name="Coin3" type="Area2D" parent="."]
+position = Vector2(1587, -738)
+script = ExtResource("6_272bh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin3"]
+position = Vector2(698, 280)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_7mycd")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin3"]
+position = Vector2(698, 280)
+shape = SubResource("CircleShape2D_7mycd")
+
+[node name="Coin2" type="Area2D" parent="."]
+position = Vector2(-137, 31)
+script = ExtResource("6_272bh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin2"]
+position = Vector2(698, 280)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_7mycd")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin2"]
+position = Vector2(698, 280)
+shape = SubResource("CircleShape2D_7mycd")
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_kek77")
+volume_db = -4.976
+autoplay = true
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Heart1" type="TextureRect" parent="UI"]
+offset_left = 635.00006
+offset_top = 221.0
+offset_right = 1835.0
+offset_bottom = 1421.0
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("12_dg77c")
+
+[node name="Heart2" type="TextureRect" parent="UI"]
+offset_left = 704.0
+offset_top = 220.0
+offset_right = 1904.0
+offset_bottom = 1420.0
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("12_dg77c")
+
+[node name="Heart3" type="TextureRect" parent="UI"]
+offset_left = 773.0
+offset_top = 221.0
+offset_right = 1973.0
+offset_bottom = 1421.0
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("12_dg77c")
+
+[node name="GameOver" type="TextureRect" parent="UI"]
+process_mode = 2
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("13_ycdy4")
+
+[connection signal="body_entered" from="Killzone" to="Killzone" method="_on_body_entered"]
+[connection signal="body_entered" from="Ground3/Detector" to="Ground3" method="_on_detector_body_entered"]
+[connection signal="body_entered" from="Coin" to="Coin" method="_on_body_entered"]
+[connection signal="body_entered" from="Coin5" to="Coin5" method="_on_body_entered"]
+[connection signal="body_entered" from="Coin6" to="Coin6" method="_on_body_entered"]
+[connection signal="body_entered" from="Coin7" to="Coin7" method="_on_body_entered"]
+[connection signal="body_entered" from="Coin30" to="Coin30" method="_on_body_entered"]
+[connection signal="body_entered" from="Coin31" to="Coin31" method="_on_body_entered"]
+[connection signal="body_entered" from="Coin32" to="Coin32" method="_on_body_entered"]
+[connection signal="body_entered" from="Coin8" to="Coin8" method="_on_body_entered"]
+[connection signal="body_entered" from="Coin9" to="Coin9" method="_on_body_entered"]
+[connection signal="body_entered" from="Coin10" to="Coin10" method="_on_body_entered"]
+[connection signal="body_entered" from="Coin11" to="Coin11" method="_on_body_entered"]
+[connection signal="body_entered" from="Coin12" to="Coin12" method="_on_body_entered"]
+[connection signal="body_entered" from="Coin13" to="Coin13" method="_on_body_entered"]
+[connection signal="body_entered" from="Coin14" to="Coin14" method="_on_body_entered"]
+[connection signal="body_entered" from="Coin15" to="Coin15" method="_on_body_entered"]
+[connection signal="body_entered" from="Coin16" to="Coin16" method="_on_body_entered"]
+[connection signal="body_entered" from="Coin17" to="Coin17" method="_on_body_entered"]
+[connection signal="body_entered" from="Coin18" to="Coin18" method="_on_body_entered"]
+[connection signal="body_entered" from="Coin19" to="Coin19" method="_on_body_entered"]
+[connection signal="body_entered" from="Coin20" to="Coin20" method="_on_body_entered"]
+[connection signal="body_entered" from="Coin21" to="Coin21" method="_on_body_entered"]
+[connection signal="body_entered" from="Coin22" to="Coin22" method="_on_body_entered"]
+[connection signal="body_entered" from="Coin23" to="Coin23" method="_on_body_entered"]
+[connection signal="body_entered" from="Coin24" to="Coin24" method="_on_body_entered"]
+[connection signal="body_entered" from="Coin25" to="Coin25" method="_on_body_entered"]
+[connection signal="body_entered" from="Coin26" to="Coin26" method="_on_body_entered"]
+[connection signal="body_entered" from="Coin27" to="Coin27" method="_on_body_entered"]
+[connection signal="body_entered" from="Coin28" to="Coin28" method="_on_body_entered"]
+[connection signal="body_entered" from="Coin29" to="Coin29" method="_on_body_entered"]
+[connection signal="body_entered" from="Coin4" to="Coin4" method="_on_body_entered"]
+[connection signal="body_entered" from="Coin3" to="Coin3" method="_on_body_entered"]
+[connection signal="body_entered" from="Coin2" to="Coin2" method="_on_body_entered"]
